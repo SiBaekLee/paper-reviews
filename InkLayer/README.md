@@ -3,7 +3,7 @@
 > **SIGGRAPH Conference Papers 2025**  
 > Mia Tang, Yael Vinker, Chuan Yan, Lvmin Zhang, Maneesh Agrawala (Stanford / MIT CSAIL)
 
-🔗 [논문 홈페이지](https://inklayer.github.io) · [arXiv](https://doi.org/10.1145/3721238.3730606)
+🔗 [논문 홈페이지](https://inklayer.github.io) · [arXiv](https://doi.org/10.1145/3721238.3730606) · [📄 발표 슬라이드](./Yael%20Vinker.2025.SIGGRAPH.InkLayer%20presented%20by%20%EC%9C%A0%EC%A7%84%ED%98%84.pdf)
 
 ---
 
