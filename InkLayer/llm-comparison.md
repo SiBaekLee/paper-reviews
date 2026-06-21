@@ -1,20 +1,19 @@
-# Scene Sketch Instance Segmentation — InkLayer 재현 및 LLM 비교 연구
+# InkLayer vs 범용 LLM — 장면 스케치 인스턴스 분할 비교
 
-SIGGRAPH 2025 논문 InkLayer(*Instance Segmentation of Scene Sketches Using Natural Image Priors*)를 직접 재현하고, 자체 수집한 테스트셋으로 평가했으며, ChatGPT·Gemini 같은 범용 멀티모달 LLM과 같은 과제에서 비교한 학습·실험 기록임.
+SIGGRAPH 2025 논문 InkLayer가 수행하는 장면 스케치 인스턴스 분할 과제를, 범용 멀티모달 LLM인 ChatGPT와 Gemini가 같은 입력에서 얼마나 해내는지 비교한 실험 기록임.
 
 ## 동기
 
-목표 분야는 컴퓨터비전과 컴퓨터그래픽스, 특히 스케치를 편집 가능한 레이어로 분리해 시각 디자인 워크플로우를 자동화하는 방향임. 그 관점에서 장면 스케치를 객체 단위로 분할해 편집 가능한 레이어로 만드는 InkLayer는 핵심 선행 연구라 판단해, 단순히 읽는 데 그치지 않고 직접 돌려보고 한계를 검증함.
+목표 분야는 컴퓨터비전과 컴퓨터그래픽스, 특히 스케치를 편집 가능한 레이어로 분리해 시각 디자인 워크플로우를 자동화하는 방향임. 이 과제를 전용 모델과 범용 LLM 중 무엇이 더 잘 수행하는지 직접 확인하고자 비교 실험을 진행함.
 
-## InkLayer 요약
+## 비교 대상
 
-InkLayer는 자연 이미지의 사전지식을 스케치 도메인에 적응시켜 래스터 장면 스케치를 인스턴스 단위로 분할함. 클래스에 구애받지 않는 파인튜닝과 깊이 단서를 활용해 마스크를 정제하고, 분할 결과를 정렬된 레이어로 구성하며 가려진 영역을 인페인팅해 스케치 편집을 가능하게 함. 저자들은 합성 데이터셋 InkScenes를 구축함.
+비교 기준선은 InkLayer의 출력임. InkLayer는 자연 이미지의 사전지식을 스케치 도메인에 적응시켜 래스터 장면 스케치를 인스턴스 단위로 분할하고, 결과를 정렬된 레이어로 분해하며 가려진 영역을 인페인팅해 편집 가능한 레이어를 만드는 방법론임.
 
-## 한 일
+## 실험 구성
 
-- 공식 구현 구동 및 포팅. 환경과 의존성을 정리하고, 로컬 RTX 5090(32GB)에서 추론을 수행했으며, Blackwell 세대 초기 CUDA 호환 이슈를 처리함.
 - 자체 테스트셋 수집. character, landscape, normal person, object 등 콘텐츠 유형별로 스케치를 수집·분류해 일반화를 점검했고, 각 이미지의 출처와 전처리, 프롬프트를 문서화했으며, 평가 타당성을 위해 AI 생성 이미지를 지양하는 정책에 따라 일부를 폐기함.
-- LLM 비교 실험. 동일한 장면에 대해 ChatGPT와 Gemini에 인스턴스 단위로 분리해 색을 입히라는 과제를 주고, InkLayer 결과와 나란히 비교함.
+- 동일한 장면에 대해 ChatGPT와 Gemini에 인스턴스 단위로 분리해 색을 입히라는 과제를 주고, InkLayer 출력과 나란히 비교함.
 
 ## 핵심 비교
 
@@ -44,7 +43,7 @@ InkLayer는 자연 이미지의 사전지식을 스케치 도메인에 적응시
 
 ## 출처
 
-본 저장소는 학습과 평가 목적의 비공식 재현이며, 방법론의 원저작권은 원저자에게 있음.
+본 비교는 학습과 평가 목적이며, InkLayer 방법론의 원저작권은 원저자에게 있음.
 
 - 논문: Tang, Vinker, Yan, Zhang, Agrawala, *Instance Segmentation of Scene Sketches Using Natural Image Priors*, SIGGRAPH 2025 — [arXiv:2502.09608](https://arxiv.org/abs/2502.09608)
 - 공식 구현: https://github.com/miatang13/InkLayer
