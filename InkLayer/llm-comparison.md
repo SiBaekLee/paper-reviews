@@ -1,6 +1,6 @@
 # InkLayer vs 범용 LLM — 장면 스케치 인스턴스 분할 비교
 
-SIGGRAPH 2025 논문 InkLayer가 수행하는 장면 스케치 인스턴스 분할 과제를, 범용 멀티모달 LLM인 ChatGPT와 Gemini가 같은 입력에서 얼마나 해내는지 비교한 실험 기록임.
+SIGGRAPH 2025 논문 InkLayer가 수행하는 장면 스케치 인스턴스 분할 과제를, 범용 멀티모달 LLM인 ChatGPT가 같은 입력에서 얼마나 해내는지 비교한 실험 기록임.
 
 ## 동기
 
